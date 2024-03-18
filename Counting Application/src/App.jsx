@@ -2,25 +2,28 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  let [Counter, setCounter] = useState(0);
-  let addValue = () => {
-    if (Counter <= 19){
-      setCounter(Counter + 1)
-      console.log("clicked");
-    }else{
-      console.log("Out of Value");
+  const [counter, setCounter] = useState(0);
+
+  const addValue = () => {
+    if (counter < 20) {
+      setCounter(counter + 1);
+    } else {
+      alert("You can't go Above than 20");
     }
-    
   };
 
-  let removeValue = () => {
-    setCounter(Counter - 1)
+  const removeValue = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    } else {
+      alert("You Can't go Less than 0");
+    }
   };
 
   return (
     <>
       <h2>Counting Application</h2>
-      <h4>Count:{Counter}</h4>
+      <h4>Count : {counter}</h4>
 
       <button onClick={addValue}>ADD</button>
       <br />
